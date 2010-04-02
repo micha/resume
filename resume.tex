@@ -1,0 +1,175 @@
+% Micha Niskin's Resume
+% Created: Sat Sep  1 16:18:04 EDT 2007
+% Last Modified: Sat Sep  1 16:18:17 EDT 2007
+
+\documentclass[9pt,oneside]{article}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0in,headsep=0in,footskip=.3in}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+% Name and contact information
+\newcommand{\name}{Micha Niskin}
+\newcommand{\addr}{5271 SW 8th ST \#314, Coral Gables, FL 33134}
+\newcommand{\phone}{(786) 267-8465}
+\newcommand{\email}{micha@ubergibson.com}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+	\begin{center}\fontfamily{phv}\selectfont\Huge\scshape#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+	\vspace{4pt}
+	{\fontfamily{phv}\selectfont\Large#1}
+	\begin{itemize}
+	\vspace{3pt}
+}{
+	\end{itemize}
+}
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+	\vspace{-4pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+	\vspace{-1pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+	\vspace{-5pt}
+	\item
+	\textbf{#1}---#2 \\
+	\textit{#3}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[3]{
+	\resbigitem{#1}{#2}{#3}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+	\resitem{\textbf{#1}}
+	\vspace{-5pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+
+\fontfamily{ppl} \selectfont
+
+% Name with horizontal rule
+\bigname{\name}
+
+\vspace{-8pt} \rule{\textwidth}{1pt}
+
+\vspace{-1pt} {\small\itshape \addr \hfill \phone; \email}
+
+\vspace{8 pt}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Summary}
+
+\item {More than 7 years of Unix programming, application development, web development, and system administration experience. I am interested in a position that would allow me to use my programming, design, and system administration skills in an innovative environment.}
+
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Skills}
+
+	\resitem{\textbf{Operating Systems:} Linux (Gentoo, Red Hat, and Debian), Mac OS X, BSD, UNIX (several variants)}
+
+	\ressubitem{\textbf{Programming:} Proficient in C, C++, Perl, UNIX Shells, \LaTeX, HTML, CSS, PHP, Javascript, SQL, Object Oriented Design, Unix and Network Programming. Familiar with Java, Fortran, Visual Basic, and MVC Webapp Design.}
+
+	\ressubitem{\textbf{Systems:} Proficient in administration of Apache, BIND, CVS/RCS, OpenLDAP, SSHD, NFS, IPTables, AutoFS, Amanda, Rocks Clusters, and MySQL. Familiar with Kerberos, OpenSSL, Latex, Postfix, and Samba.}
+
+	\resitem{\textbf{Tools:} Proficient using standard UNIX tools such as Gcc, Gdb, Flex, Bison, Make, Sed, Awk, Sort, Vi, etc.}
+
+
+	\ressubitem{\textbf{Other:} Strong mathematics/physics background and an interest in algorithms.}
+
+
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Experience}
+
+	\begin{ressubsec}{Center For Internet Augmented Research Assessment}{Miami, FL}{Network Engineer: February 2007--present}
+		\ressubitem{Designed, deployed and maintained an Open Science Grid tier 3 computing cluster for high energy physics research.}
+		\ressubitem{Participated in national Open Science Grid Integration Testbed development.}
+	\end{ressubsec}
+
+	\begin{ressubsec}{Florida International University}{Miami, FL}{System Administrator: 1997--2000, 2002--2004, 2006--present}
+		\ressubitem{Configured servers, maintained appliactions and provided application support to research faculty, developed tools and scripts to automate administration tasks, designed and deployed network segments and elements.}
+		\ressubitem{\textbf{Project leader:} Design, programming and implementation of an innovative and complex portal site for grid computing community, written in perl and javascript.}
+		\ressubitem{\textbf{Project leader:} Provided object-oriented design, programming and implementation of a suite of data analysis applications for nuclear physics, written in C++.}
+		\ressubitem{\textbf{Project leader:} Design, programming and implementation of an extensive series of modifications to the Samba server source code, written in C.}
+	\end{ressubsec}
+
+	\begin{ressubsec}{United States Army}{}{Civil Affairs Sergeant: 2004--2008}
+		\ressubitem{Responsible for maintenance and accountability of weapons, vehicles, and equipment.}
+		\ressubitem{Assisted in the development and supervision of projects supporting civil-military operations in Iraq in cooperation with the Iraqi government, various non-governmental organizations, and local contractors.}
+		\ressubitem{Responsible for preparation of situation reports and briefings.}
+	\end{ressubsec}
+
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Programming Projects, Research}
+
+	\resitem{\textbf{Secure and Auditable Database Access for Web Applications} A method of controlling access to data in a relational database using access control lists, with the capability of conducting automated and verifiably correct security auditing of access to sensitive data. 90\% complete.}
+	\resitem{\textbf{Browser-independent Rendering Framework for Presentation of Dynamic Content in HTML} A method of providing guaranteed dimensions for layout elements in a dynamically created HTML document. Ultimate goal is to obviate the need to know implementation details of any browser's rendering engine while providing a repeatable, predictable, and consistent rendering behavior in any browser. 30\% complete.}
+	\resitem{\textbf{Method of Providing Guaranteed Accessibility in Rich Web Applications} A framework which attempts to address the issues of accessibility, code fragmentation, and search engine indexing of DHTML/Web2.0 web applications. 25\% complete.}
+	\resitem{\textbf{Java Web Application Container} A "servelet" container designed as a testbed. Not associated with any actual servelet specification. Incorporates a complete HTTP request stack and web server, multi-threaded, configurable, and fast.}
+
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Education}
+
+	\begin{resbigitem}{Florida International University}{Miami, FL 1998--2000, 2002--2004}{Physics and Mathematics}
+	\end{resbigitem}
+
+	\begin{resbigitem}{SUNY Maritime College}{New York, NY 2000--2002}{Naval Architecture}
+	\end{resbigitem}
+
+\end{ressection}
+
+
+\end{document}
